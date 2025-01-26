@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %} Login {% endblock %}
+{% block navbar %}{% endblock navbar %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header text-center bg-dark py-4 text-white">
+                    <h4>Login</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="{% url "login" %}">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-dark">Entrar</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    <p class="text-muted">Não tem uma conta? <a href="{% url "cadastro" %}" class="text-decoration-none">Cadastre-se</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

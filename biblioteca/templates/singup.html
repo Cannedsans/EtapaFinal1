@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Cadastro{% endblock %}
+{% block navbar %}{% endblock navbar %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header text-center bg-dark py-4 text-white">
+                    <h4>Cadastro</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="{% url 'cadastro' %}">
+                        {% csrf_token %}
+                        
+                        {{ form.as_p }}
+                        
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-dark">Cadastrar</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    <p class="text-muted">Já possui uma conta? <a href="{% url 'login' %}" class="text-decoration-none">Faça login</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
